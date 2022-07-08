@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TvshowComponent } from './tvshow.component';
+import { TvshowComponent } from './televisionshow.component';
 
 describe('TvshowComponent', () => {
   let component: TvshowComponent;
