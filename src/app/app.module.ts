@@ -34,10 +34,10 @@ import { TvShowComponent } from './pages/tvshow/tvshow.component';
     ItemsBannerComponent,
     ItemComponent,
     MovieComponent,
-    VideoEmbedComponent,
     GenresComponent,
     TvShowComponent,
-    TvShowsComponent
+    TvShowsComponent,
+    VideoEmbedComponent,
   ],
   imports: [
     BrowserModule,
