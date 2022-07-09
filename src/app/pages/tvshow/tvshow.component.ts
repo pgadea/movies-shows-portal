@@ -16,7 +16,7 @@ import { IMAGES_SIZES } from '../../constants/images-sizes';
   templateUrl: './tvShow.component.html',
   styleUrls: ['./tvShow.component.scss']
 })
-export class TvShowComponent implements OnInit, OnDestroy {
+export class TelevisionShowComponent implements OnInit, OnDestroy {
   tvShow: TvShow | null = null;
   tvShowBanner: Item | null = null;
   tvShowVideos: TvShowVideo[] = [];
