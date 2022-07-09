@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Item } from '../../components/item/item';
 import {
@@ -16,7 +16,7 @@ import { IMAGES_SIZES } from '../../constants/images-sizes';
   templateUrl: './tvShow.component.html',
   styleUrls: ['./tvShow.component.scss']
 })
-export class TelevisionShowComponent implements OnInit, OnDestroy {
+export class TelevisionShowComponent implements OnInit {
   tvShow: TvShow | null = null;
   tvShowBanner: Item | null = null;
   tvShowVideos: TvShowVideo[] = [];
@@ -33,10 +33,6 @@ export class TelevisionShowComponent implements OnInit, OnDestroy {
       this.getTvShowImages(id);
       this.getTvShowCredits(id);
     });
-  }
-
-  ngOnDestroy() {
-    console.log('component destroyed');
   }
 
   getTvShow(id: string) {
