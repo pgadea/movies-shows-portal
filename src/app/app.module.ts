@@ -30,14 +30,14 @@ import { TvShowComponent } from './pages/tvshow/tvshow.component';
     FooterComponent,
     HomeComponent,
     MoviesComponent,
+    TvShowsComponent,
+    TvShowComponent,
     SliderComponent,
     ItemsBannerComponent,
     ItemComponent,
     MovieComponent,
     VideoEmbedComponent,
     GenresComponent,
-    TvShowsComponent,
-    TvShowComponent
   ],
   imports: [
     BrowserModule,
