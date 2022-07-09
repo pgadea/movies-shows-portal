@@ -6,6 +6,7 @@
         <div class="col-12 md:col-3 lg:col-3">
           <img class="poster" [src]="imagesSizes.medium + movie.poster_path" [alt]="movie.title" />
         </div>
+
         <div class="col-12 md:col-9 lg:col-9">
           <h2>Overview</h2>
           <p class="overview">{{ movie.overview }}</p>
@@ -74,10 +75,11 @@
   </p-tabView>
   <p-carousel [numVisible]="5" *ngIf="movieCredits" [value]="movieCredits.cast">
     <ng-template let-actor pTemplate="item">
-        <div class="actor">
-            <img [src]="imagesSizes.medium + actor.profile_path" alt="">
-            <div>{{actor.name}}</div>
-        </div>
+      <div class="actor">
+        <img [src]="imagesSizes.medium + actor.profile_path" alt="" />
+        <span>{{ actor.name }}</span>
+      </div>
     </ng-template>
-</p-carousel>
+  </p-carousel>
+  <items-banner [items]="similarMovies" title="Similar Movies"></items-banner>
 </ng-container>

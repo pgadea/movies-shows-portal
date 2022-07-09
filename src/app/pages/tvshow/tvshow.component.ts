@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Item } from '../../components/item/item';
+import { Item } from 'src/app/components/item/item';
 import {
   mapTvShowToItem,
   TvShow,
@@ -16,7 +16,7 @@ import { IMAGES_SIZES } from '../../constants/images-sizes';
   templateUrl: './tvShow.component.html',
   styleUrls: ['./tvShow.component.scss']
 })
-export class TelevisionShowComponent implements OnInit {
+export class TvShowComponent implements OnInit, OnDestroy {
   tvShow: TvShow | null = null;
   tvShowBanner: Item | null = null;
   tvShowVideos: TvShowVideo[] = [];
@@ -33,6 +33,10 @@ export class TelevisionShowComponent implements OnInit {
       this.getTvShowImages(id);
       this.getTvShowCredits(id);
     });
+  }
+
+  ngOnDestroy() {
+    console.log('component destroyed');
   }
 
   getTvShow(id: string) {

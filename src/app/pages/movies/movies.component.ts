@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { take } from 'rxjs';
+import { take } from 'rxjs/operators';
 import { Movie } from 'src/app/models/movie';
 import { MoviesService } from 'src/app/services/movies.service';
 
@@ -41,6 +41,7 @@ export class MoviesComponent implements OnInit {
 
   paginate(event: any) {
     const pageNumber = event.page + 1;
+
     if (this.genreId) {
       this.getMoviesByGenre(this.genreId, pageNumber);
     } else {

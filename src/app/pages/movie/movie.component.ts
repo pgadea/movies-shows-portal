@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {first} from 'rxjs/operators';
+import { first } from 'rxjs/operators';
 import { Movie, MovieCredits, MovieImages, MovieVideo } from 'src/app/models/movie';
 import { MoviesService } from 'src/app/services/movies.service';
 import { IMAGES_SIZES } from '../../constants/images-sizes';
@@ -11,25 +11,27 @@ import { IMAGES_SIZES } from '../../constants/images-sizes';
   styleUrls: ['./movie.component.scss']
 })
 export class MovieComponent implements OnInit, OnDestroy {
-
   movie: Movie | null = null;
   movieVideos: MovieVideo[] = [];
   movieImages: MovieImages | null = null;
   movieCredits: MovieCredits | null = null;
   imagesSizes = IMAGES_SIZES;
-  constructor(private route: ActivatedRoute, private moviesService: MoviesService) { }
+  similarMovies: Movie[] = [];
+
+  constructor(private route: ActivatedRoute, private moviesService: MoviesService) {}
 
   ngOnInit(): void {
-    this.route.params.pipe(first()).subscribe(({id}) => {
+    this.route.params.pipe().subscribe(({ id }) => {
       this.getMovie(id);
       this.getMovieVideos(id);
       this.getMovieImages(id);
       this.getMovieCredits(id);
+      this.getMovieSimilar(id);
     });
   }
 
-  ngOnDestroy(): void {
-    
+  ngOnDestroy() {
+    console.log('component destroyed');
   }
 
   getMovie(id: string) {
@@ -39,14 +41,20 @@ export class MovieComponent implements OnInit, OnDestroy {
   }
 
   getMovieVideos(id: string) {
-    this.moviesService.getMovieVideos(id).subscribe(movieVideosData => {
+    this.moviesService.getMovieVideos(id).subscribe((movieVideosData) => {
       this.movieVideos = movieVideosData;
     });
   }
 
+  getMovieSimilar(id: string) {
+    this.moviesService.getMovieSimilar(id).subscribe((movieSimilarData) => {
+      this.similarMovies = movieSimilarData;
+    });
+  }
+
   getMovieImages(id: string) {
-    this.moviesService.getMovieImages(id).subscribe((moviesImagesData) => {
-      this.movieImages = moviesImagesData;
+    this.moviesService.getMovieImages(id).subscribe((movieImagesData) => {
+      this.movieImages = movieImagesData;
     });
   }
 
@@ -55,9 +63,4 @@ export class MovieComponent implements OnInit, OnDestroy {
       this.movieCredits = movieCreditsData;
     });
   }
-
-  identify(index: number, item: MovieVideo) {
-    return item.key;
-  }
-
 }

@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Item } from 'src/app/components/item/item';
 import { TvShowsService } from 'src/app/services/tvshows.service';
 import { mapMovieToItem, Movie } from '../../models/movie';
+import { mapTvShowToItem, TvShow } from '../../models/tv';
 import { MoviesService } from '../../services/movies.service';
-import {mapTvShowToItem} from '../../models/tv';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +11,6 @@ import {mapTvShowToItem} from '../../models/tv';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
   popularMovies: Item[] = [];
   upcomingMovies: Item[] = [];
   topRatedMovies: Item[] = [];

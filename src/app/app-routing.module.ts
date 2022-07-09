@@ -5,7 +5,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { MovieComponent } from './pages/movie/movie.component';
 import { MoviesComponent } from './pages/movies/movies.component';
 import { TvShowsComponent } from './pages/tv-shows/tv-shows.component';
-import { TelevisionShowComponent } from './pages/tvshow/tvshow.component';
+import { TvShowComponent } from './pages/tvshow/tvshow.component';
 
 const routes: Routes = [
   {
@@ -29,8 +29,12 @@ const routes: Routes = [
     component: TvShowsComponent
   },
   {
-    path: 'tvshows/:id',
-    component: TelevisionShowComponent
+    path: 'tvshow/:id',
+    component: TvShowComponent
+  },
+  {
+    path: 'tvshows/genres/:genreId',
+    component: TvShowsComponent
   },
   {
     path: 'genres',
@@ -46,4 +50,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
